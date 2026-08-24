@@ -1,5 +1,5 @@
 package com.example.flight.controller;
-
+import com.example.flight.model.Flight;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,8 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/flights")
 public class FlightController {
 
-    @GetMapping
-    public String getFlights() {
-        return "All flights";
+    @GetMapping 
+    public Flight getFlight(){
+        Flight flight = new Flight();
+
+        flight.setId(1L);
+        flight.setFlightNumber("NZ001");
+        flight.setOrigin("AKL");
+        flight.setDestination("SYD");
+
+        return flight;
+
     }
 }
