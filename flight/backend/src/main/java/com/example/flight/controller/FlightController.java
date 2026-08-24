@@ -1,5 +1,8 @@
 package com.example.flight.controller;
+
 import com.example.flight.entity.Flight;
+import com.example.flight.service.FlightService;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,16 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/flights")
 public class FlightController {
 
-    @GetMapping 
-    public Flight getFlight(){
-        Flight flight = new Flight();
+    private final FlightService flightService;
 
-        flight.setId(1L);
-        flight.setFlightNumber("NZ001");
-        flight.setOrigin("AKL");
-        flight.setDestination("SYD");
+    public FlightController(FlightService flightService) {
+        this.flightService = flightService;
+    }
 
-        return flight;
-
+    @GetMapping
+    public List<Flight> getFlight() {
+        return flightService.getFlights();
     }
 }

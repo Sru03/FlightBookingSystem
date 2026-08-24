@@ -1,47 +1,46 @@
-package com.example.flight.model;
+package com.example.flight.entity;
 
-import java.lang.annotation.Inherited;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "flights")
-
+@Table(name = "flights")
 public class Flight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
+    private Long id;
 
     private String flightNumber;
-
     private String origin;
-
     private String destination;
-    
 
     public Flight() {
     }
 
-
-    public Flight(Long id, String flightNumber, String origin, String destination){
+    public Flight(Long id, String flightNumber, String origin, String destination) {
         this.id = id;
         this.flightNumber = flightNumber;
         this.origin = origin;
         this.destination = destination;
     }
 
-    public long getId(){
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getFlightNumber(){
+    public String getFlightNumber() {
         return this.flightNumber;
     }
 
-    public void setFlightNumber(String flightNumber){
+    public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
     }
 
@@ -49,21 +48,15 @@ public class Flight {
         return this.origin;
     }
 
-    public void setOrigin(String origin){
+    public void setOrigin(String origin) {
         this.origin = origin;
     }
 
-    public String getDestination(){
+    public String getDestination() {
         return this.destination;
     }
 
-    public void setDestination(String destination){
+    public void setDestination(String destination) {
         this.destination = destination;
     }
-
-
-
-
-
-    
 }
