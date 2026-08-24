@@ -1,5 +1,5 @@
 package com.example.flight.controller;
-import com.example.flight.model.Flight;
+import com.example.flight.entity.Flight;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

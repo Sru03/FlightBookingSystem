@@ -1,11 +1,22 @@
 package com.example.flight.model;
 
+import java.lang.annotation.Inherited;
+
+@Entity
+@Table(name= "flights")
+
 public class Flight {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
+
     private String flightNumber;
+
     private String origin;
+
     private String destination;
+    
 
     public Flight() {
     }
