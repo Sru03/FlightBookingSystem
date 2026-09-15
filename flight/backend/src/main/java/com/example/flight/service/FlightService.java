@@ -2,6 +2,7 @@ package com.example.flight.service;
 
 import com.example.flight.entity.Flight;
 import com.example.flight.repository.FlightRepository;
+import com.example.flight.exceptions.ResourceNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class FlightService {
 
     public Flight updateFlight(Long id, Flight incoming) {
         Flight existing = flightRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Flight not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Flight not found with id : " + id));
 
         existing.setFlightNumber(incoming.getFlightNumber());
         existing.setOrigin(incoming.getOrigin());

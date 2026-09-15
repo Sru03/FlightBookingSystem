@@ -1,6 +1,7 @@
 package com.example.flight.controller;
 
 import com.example.flight.entity.Flight;
+import com.example.flight.exceptions.ResourceNotFoundException;
 import com.example.flight.service.FlightService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,7 @@ public class FlightController {
     @GetMapping("/{id}")
     public Flight getFlightById(@PathVariable Long id) {
         return flightService.getFlightById(id)
-                .orElseThrow(() -> new RuntimeException("Flight not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Flight not found with id : " + id));
     }
 
     @PostMapping
